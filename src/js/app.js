@@ -6,30 +6,42 @@ $(() => {
 // OLD CODE: ,  userAnswer = prompt corresponding question from array of objects,
 // inject content with javascript to an html elements for display of question with options
 
-// .innerHTML to display question in div
-// use .clone()? , Creates duplicate that replaces the old div
+// How to get questions to disappear once button selection occurs, .empty();
 
-// create element button in button div?
-// answer? button... generate them with question
-
-// How to get questions to disappear once button selection occurs
+// Need to get lives to go down if incorrect selection
 
   const $squares = $('.div');
+  const $answerText = $('.answerText');
+  const $answerButtons = $('.answerButtons');
+  let question = null;
+
   $squares.on('click', (e) => {
     const squareIndex = $(e.target).index();
-    const question = triviaQuestionsArray[squareIndex];
-    const div = document.querySelector('.answerBox');
-    div.innerHTML = div.innerHTML + question.text;
-    const button = document.createElement('button');
-    document.querySelector('.answerBox2').appendChild(button);
-    // const userAnswer = prompt(question.text);
-    // if (userAnswer !== question.answer){
-    //   alert(question.rebuttal);
-    // } else {
-    //   alert(question.correct);
-    // }
+    question = triviaQuestionsArray[squareIndex];
+
+    $answerButtons.empty();
+
+    $answerText.html(question.text);
+
+    question.options.forEach((option) => {
+      const $btn = $(`<button>${option}</button>`);
+      // add the click handler to the button...
+      $answerButtons.append($btn);
+    });
+
 
   });
+
+  $answerButtons.on('click', 'button', checkAnswer);
+
+  function checkAnswer(e) {
+    if ($(e.target).text() === question.answer) {
+      alert(question.correct);
+    } else {
+      alert(question.rebuttal);
+      // something here to deduct a life
+    }
+  }
 
 // Create array of questions which will align with the matching indexes of divs
 // array that contains questions, answers and reactions to user input
