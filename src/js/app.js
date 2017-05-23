@@ -16,19 +16,25 @@ $(() => {
 
 // Need to get lives to go down if incorrect selection
 
-  const $squares = $('.div');
+  const $squares = $('.block');
   const $answerText = $('.answerText');
   const $answerButtons = $('.answerButtons');
   const $hearts = $('.hearts');
-  const $images = $('.img');
+  const $audio = $('.audio');
   // const $background = $(this).css('background-image');
 
   let question = null;
+  let questionIndex = null;
   let lives = 3;
 
-  $squares.on('click', (e) => {
-    const squareIndex = $(e.target).index();
-    question = triviaQuestionsArray[squareIndex];
+  $squares.on('click', revealQuestion);
+
+  function revealQuestion() {
+
+    $(this).addClass('active');
+
+    questionIndex = $(this).attr('data-id');
+    question = triviaQuestionsArray[questionIndex];
 
     $answerButtons.empty();
 
@@ -40,18 +46,21 @@ $(() => {
       $answerButtons.append($btn);
     });
 
-
-  });
+  }
 
   $answerButtons.on('click', 'button', checkAnswer);
 
   function checkAnswer(e) {
-    if ($(e.target).text() === question.answer) {
-      alert(question.correct);
+    if ($(e.target).text() === 'clowns') {
+      alert('YOU WIN!!!');
+      $audio.play();
       // function here to toggle() image
+    } else if ($(e.target).text() === question.answer){
+      alert(question.correct);
     } else {
       alert(question.rebuttal);
       removeHeart();
+      $squares.eq(questionIndex).removeClass('active');
     }
   }
 
@@ -112,7 +121,7 @@ $(() => {
     text: 'Rule #17.. Don\'\t be a what?',
     options: ['Zombie', 'Hero', 'Crook'],
     answer: 'Hero',
-    correct: 'So you\'\re doing great keep survivin and thrivin!',
+    correct: 'So you are doing great keep survivin and thrivin!',
     rebuttal: 'Zombies are eating you, guess better!'
   },{
     text: 'Which famous actor does Columbus shoot for acting like a zombie?',
@@ -154,7 +163,7 @@ $(() => {
     text: 'What is Talahasse\'s\ one weakness?',
     options: ['Twinkies', 'Puppies', 'Cupcakes'],
     answer: 'Twinkies',
-    correct: 'So you\'\re doing great keep survivin and thrivin!',
+    correct: 'So you are doing great keep survivin and thrivin!',
     rebuttal: 'Perhaps that is your one weakness?'
   },{
     text: 'Rule #17.. Don\'\t be a what?',

@@ -5,6 +5,7 @@
   <title>Project 1</title>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="src/js/app.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Allan" rel="stylesheet">
   <link rel="stylesheet" href="public/css/main.css">
 </head>
 <body>
@@ -16,7 +17,12 @@
 <section id="gameboard" class="pageTwo">
 
 <div id="myDiv">
-  <p class="title">SURVIVE THE ZOMBIE APOCALYPSE</p>
+  <p class="title">SURVIVE THE ZOMBIE APOCALYPSE</p><br>
+  <p class="subtitle">Join Columbus, Talahasse, Lil Rock and Witchita as they <br>
+  navigate the zombie apocalypse. Answer the questions right, <br>
+  and move along the board until you reach Pacific Playland! <br>
+  But if you guess incorrectly and lose all your lives you'll be <br>
+  fed to the hungry zombies on your tail!</p>
 </div>
 
 <section id="innerGameboard">
@@ -24,25 +30,26 @@
   <div class="div two"></div>
   <div class="div three"></div>
   <div class="div four"></div>
-  <div class="div five block">
-    <img class="img" src="src/assets/images/lrock.jpg" alt="">
+  <div id="winner" class="div five block" data-id="0">
+    <audio class="audio" src="src/assets/sounds/playland.wav"></audio>
+    <img class="img" src="src/assets/images/lilrock.jpg" alt="">
   </div>
-  <div class="div six block">
+  <div class="div six block" data-id="1">
     <img class="img" src="src/assets/images/zom.jpg" alt="">
   </div>
-  <div class="div seven block">
+  <div class="div seven block" data-id="2">
     <img class="img" src="src/assets/images/bmz.jpg" alt="">
   </div>
-  <div class="div eight block">
+  <div class="div eight block" data-id="3">
     <img class="img" src="src/assets/images/tal.jpg" alt="">
   </div>
-  <div class="div nine block">
+  <div class="div nine block" data-id="4">
     <img class="img" src="src/assets/images/Witch.jpg" alt="">
   </div>
-  <div class="div ten block">
+  <div class="div ten block" data-id="5">
     <img class="img" src="src/assets/images/scary2.jpg" alt="">
   </div>
-  <div class="div eleven block">
+  <div class="div eleven block" data-id="6">
     <img class="img" src="src/assets/images/scary.jpg" alt="">
   </div>
   <!-- <div class="div twelve"></div> -->
