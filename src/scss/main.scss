@@ -50,43 +50,64 @@ table {
 
 
 
-
-
-
-
-body{
-  overflow: hidden;
-
-}
+// body{
+//   overflow: hidden;
+// }
 
 .pageOne {
-  width: 940px;
-  // margin: 0 auto;
-  background-image: url('src/assets/images/zomgif.gif');
-  margin-bottom: 40px;
-  height: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  background-color: red;
   img {
     width: 100%;
-    margin-bottom: 30px;
   }
 }
 
 .pageTwo {
 margin-bottom: 50px;
 margin-left: 40px;
+height: 900px;
 }
 
 
-
+// possibly fix the position of the gameboard divs?
 .div {
-  padding: 80px;
+width: 200px;
+height: 180px;
+display: inline-block;
+font-size: 20px;
+  img{
+    width: 200px;
+    height: 180px;
+  }
+}
+
+.block {
   border: 2px solid black;
-  display: inline-block;
-  font-size: 20px;
+  background-color: red;
+  // display: none;
+  img {
+    visibility: hidden;
+  }
+}
+
+
+#lives {
+  // padding: 10px;
+  border: none;
+    img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.answerText {
+  margin-bottom: 30px;
   text-align: center;
 }
 
-.answerBox{
-  padding: 20px;
-  margin: 20px;
+.answerButtons {
+  text-align: center;
+  margin-bottom: 30px;
 }
