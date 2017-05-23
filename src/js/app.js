@@ -2,6 +2,12 @@ $(() => {
 
   console.log('Js loaded');
 
+  $('#button').click(function() {
+    $('html, body').animate({
+      scrollTop: $('#myDiv').offset().top
+    }, 2000);
+  });
+  
 // Each div square has an index which is created / targeted by the click event
 // OLD CODE: ,  userAnswer = prompt corresponding question from array of objects,
 // inject content with javascript to an html elements for display of question with options
