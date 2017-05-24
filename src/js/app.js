@@ -21,6 +21,10 @@ $(() => {
   const $answerButtons = $('.answerButtons');
   const $hearts = $('.hearts');
   const $audio = $('.audio');
+  const $alertBox = $('.inner p');
+  const $popupWindow = $('.popup');
+  const $okButton = $('#ok');
+
   // const $background = $(this).css('background-image');
 
   let question = null;
@@ -56,7 +60,9 @@ $(() => {
       $audio.play();
       // function here to toggle() image
     } else if ($(e.target).text() === question.answer){
-      alert(question.correct);
+      // alert(question.correct);
+      displayAlertWindow();
+      $squares.eq(questionIndex).addClass('active');
     } else {
       alert(question.rebuttal);
       removeHeart();
@@ -64,7 +70,7 @@ $(() => {
     }
   }
 
-  //
+
   function removeHeart(){
     lives--;
     $hearts.eq(lives).hide();
@@ -80,20 +86,18 @@ $(() => {
     }
   }
 
+  function classInactive(){
+    $popupWindow.removeClass('active');
+  }
 
-// show background images on gameboard
-  // $('.block').click(function() {
-  //   $background.show();
-  // });
+  function displayAlertWindow(){
+    $popupWindow.addClass('active');
+    $alertBox.text(question.correct);
+    $okButton.on('click', classInactive);
+  }
 
-  // function to toggle the background image on and off
-  // $('.block').toggle(
-  //   function() {
-  //       $(this).css('background-image','url('on.jpg')');
-  //   },
-  //   function() {
-  //       $(this).css('background-image','url('off.jpg')');
-  //   });
+
+
 
 
 // Create array of questions which will align with the matching indexes of divs
@@ -238,6 +242,20 @@ $(() => {
   //     alert(triviaQuestionsArray[i].correct);
   //   }
   // }
+
+  // show background images on gameboard
+    // $('.block').click(function() {
+    //   $background.show();
+    // });
+
+    // function to toggle the background image on and off
+    // $('.block').toggle(
+    //   function() {
+    //       $(this).css('background-image','url('on.jpg')');
+    //   },
+    //   function() {
+    //       $(this).css('background-image','url('off.jpg')');
+    //   });
 
 // const triviaQuestions = ['What scares Columbus more than zombies?',
 //   'The zombie breakout was caused by what rotten food?', 'What is Talahasses one weakness?',
