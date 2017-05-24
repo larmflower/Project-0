@@ -71,8 +71,22 @@ margin-bottom: 50px;
 height: 900px;
 }
 
+#ok {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  font-family: 'Allan', cursive;
+}
+
+#gameboard {
+  background-image: url('/src/assets/images/theme1.jpg');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 #innerGameboard {
-  width: 1040px;
+  width: 1090px;
   margin: 0 auto;
 }
 
@@ -80,6 +94,7 @@ height: 900px;
   display: inline-block;
   margin-left: 40px;
 }
+
 
 .title {
   font-size: 40px;
@@ -89,23 +104,31 @@ height: 900px;
 
 .subtitle {
   font-family: 'Allan', cursive;
+  font-size: 25px;
+  color: black;
+  text-shadow: -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+     1px 1px 0 white;
 }
 
 
 // possibly fix the position of the gameboard divs?
 .div {
-width: 180px;
-height: 160px;
+width: 185px;
+margin-bottom: 5px;
+height: 165px;
 display: inline-block;
 font-size: 20px;
   img{
     width: 180px;
     height: 160px;
+    border: 5px solid black;
   }
 }
 
 .block {
-  border: 2px solid black;
+  border: 2px solid grey;
   background-color: red;
   &.active {
     img {
@@ -136,17 +159,23 @@ font-size: 20px;
   margin-bottom: 30px;
   text-align: center;
   display: inline-block;
+  font-size: 20px;
   font-family: 'Allan', cursive;
+  color: white;
+  text-shadow: -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
 }
 
 .answerButtons {
-  text-align: center;
   margin-bottom: 30px;
   display: inline-block;
 }
 
 .popup {
   display: none;
+  text-align: center;
   font-family: 'Allan', cursive;
   width: 100vw;
   height: 100vh;
@@ -158,6 +187,7 @@ font-size: 20px;
     left: 0;
     display: block;
     font-family: 'Allan', cursive;
+    text-align: center;
   }
 
   .inner {
@@ -171,5 +201,7 @@ font-size: 20px;
     left: 50vw;
     transform: translate(-50%, -50%);
     padding: 50px;
+    text-align: center;
+
   }
 }

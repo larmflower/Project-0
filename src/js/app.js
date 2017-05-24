@@ -2,10 +2,12 @@ $(() => {
 
   console.log('Js loaded');
 
+
   $('#button').click(function() {
     $('html, body').animate({
       scrollTop: $('#myDiv').offset().top
     }, 2000);
+
   });
 
 // Each div square has an index which is created / targeted by the click event
@@ -15,12 +17,10 @@ $(() => {
 // How to get questions to disappear once button selection occurs, .empty();
 
 // Need to get lives to go down if incorrect selection
-
   const $squares = $('.block');
   const $answerText = $('.answerText');
   const $answerButtons = $('.answerButtons');
   const $hearts = $('.hearts');
-  const $audio = $('.audio');
   const $alertBox = $('.inner p');
   const $popupWindow = $('.popup');
   const $okButton = $('#ok');
@@ -56,17 +56,17 @@ $(() => {
 
   function checkAnswer(e) {
     if ($(e.target).text() === 'clowns') {
-      alert('YOU WIN!!!');
-      $audio.play();
+      displayAlertWinner();
       // function here to toggle() image
     } else if ($(e.target).text() === question.answer){
       // alert(question.correct);
-      displayAlertWindow();
       $squares.eq(questionIndex).addClass('active');
+      displayAlertCorrect();
     } else {
-      alert(question.rebuttal);
       removeHeart();
       $squares.eq(questionIndex).removeClass('active');
+      displayAlertIncorrect();
+
     }
   }
 
@@ -90,13 +90,28 @@ $(() => {
     $popupWindow.removeClass('active');
   }
 
-  function displayAlertWindow(){
+  function refreshPage(){
+    location.reload();
+  }
+
+  function displayAlertCorrect(){
     $popupWindow.addClass('active');
     $alertBox.text(question.correct);
     $okButton.on('click', classInactive);
   }
 
 
+  function displayAlertIncorrect(){
+    $popupWindow.addClass('active');
+    $alertBox.text(question.rebuttal);
+    $okButton.on('click', classInactive);
+  }
+
+  function displayAlertWinner(){
+    $popupWindow.addClass('active');
+    $alertBox.text('Congratulations! You win!');
+    $okButton.on('click', refreshPage);
+  }
 
 
 
@@ -116,7 +131,7 @@ $(() => {
     correct: 'Pretty gross huh? Move ahead one space!',
     rebuttal: 'Seriously?'
   }, {
-    text: 'What is Talahasse\'s\ one weakness?',
+    text: 'What is Talahasse\'s one weakness?',
     options: ['Twinkies', 'Puppies', 'Cupcakes'],
     answer: 'Twinkies',
     correct: 'You live to die another day..',
