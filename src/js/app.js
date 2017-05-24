@@ -3,10 +3,12 @@ $(() => {
   console.log('Js loaded');
 
 
+
   $('#button').click(function() {
     $('html, body').animate({
       scrollTop: $('#myDiv').offset().top
     }, 2000);
+    audio.play();
 
   });
 
@@ -24,6 +26,8 @@ $(() => {
   const $alertBox = $('.inner p');
   const $popupWindow = $('.popup');
   const $okButton = $('#ok');
+  const audio = new Audio('/src/assets/sounds/seatbelts.mp3');
+
 
   // const $background = $(this).css('background-image');
 
