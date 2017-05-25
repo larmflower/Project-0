@@ -127,7 +127,7 @@ $(() => {
     rebuttal: 'Perhaps that is your one weakness? You\'re nearly half-way!'
   },{
     text: 'Rule #17.. Don\'\t be a what?',
-    options: ['Zombie', 'Hero', 'Crook'],
+    options: ['Zombie', 'Hero', 'Cottenheadedninnymuggins'],
     answer: 'Hero',
     correct: 'So you are doing great keep survivin and thrivin!',
     rebuttal: 'Zombies are eating you, guess better!'

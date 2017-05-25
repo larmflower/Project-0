@@ -52,9 +52,9 @@ Of all the many challenges faced during this project, some of my favourites were
 
 Some handy improvements I might add:
 
-- Setting restrictions so users must work through gameboard sequentially rather than being able to skip ahead.
-- Add extra difficulty levels! Create levels in the game to align with the arch of the movie.
-- Virtual reality so you could interact with the environment of the game.
+- Zombieland MONOPOLY: Setting restrictions so users must work through gameboard sequentially rather than being able to skip ahead.
+- Add extra difficulty levels and alternate players and keep score. Create themes in the game to align with the arch of the movie.
+- Animated players taking turns.
 
 
 
