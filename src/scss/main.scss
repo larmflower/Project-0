@@ -1,9 +1,3 @@
-
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -52,12 +46,11 @@ table {
   box-sizing: border-box;
 }
 
-// body{
-//   overflow: hidden;
-// }
+// MY CSS BEGINS HERE -->>>>>
 
 $font-stack: 'Allan';
 
+// Successfully nested and tested
 .pageOne {
   width: 100%;
   margin: 0 auto;
@@ -67,6 +60,11 @@ $font-stack: 'Allan';
     position: relative;
     width: 100%;
   }
+  #clickToEnter {
+    font: 100% $font-stack;
+    text-align: center;
+    font-size: 40px;
+  }
 }
 
 .pageTwo {
@@ -75,15 +73,25 @@ height: 900px;
 
 }
 
-#clickToEnter {
-  font: 100% $font-stack;
-  text-align: center;
-  font-size: 40px;
-}
+
 
 #myDiv {
-// display: inline-block;
 margin-left: 40px;
+
+  #title {
+    font: 100% $font-stack;
+    font-size: 83px;
+    margin-top: 40px;
+  }
+  .subtitle {
+    font: 100% $font-stack;
+    font-size: 25px;
+    color: black;
+    text-shadow: -1px -1px 0 white,
+      1px -1px 0 white,
+      -1px 1px 0 white,
+       1px 1px 0 white;
+  }
 }
 
 #ok {
@@ -101,104 +109,97 @@ margin-left: 40px;
   height: 100%;
 }
 
+// innergameboard to be nested within pageTWO
 #innerGameboard {
   width: 1090px;
   margin: 0 auto;
+
+  .div {
+  width: 185px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: 165px;
+  display: inline-block;
+  font-size: 20px;
+    .img{
+      width: 180px;
+      height: 160px;
+      border: 5px solid black;
+    }
+  }
+
+  .block {
+    border: 2px solid grey;
+    background-color: red;
+    &.active {
+      img {
+        visibility: visible;
+      }
+    }
+    img {
+      visibility: hidden;
+    }
+  }
+
+  #lives {
+    height: 100px;
+    border: none;
+      img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .hearts {
+      margin: 0;
+    }
+  }
+
+  .answerText {
+    margin-bottom: 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    font: 100% $font-stack;
+    color: white;
+    text-shadow: -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+  }
+
+  .answerButtons {
+    margin-bottom: 30px;
+    display: inline-block;
+  }
+
 }
 
-#title {
-  font: 100% $font-stack;
-  font-size: 40px;
-  margin-top: 40px;
-}
 
-.title {
-  font-size: 60px;
-  font: 100% $font-stack;
-  margin-top: 40px;
-}
 
-.subtitle {
-  font: 100% $font-stack;
-  font-size: 25px;
-  color: black;
-  text-shadow: -1px -1px 0 white,
-    1px -1px 0 white,
-    -1px 1px 0 white,
-     1px 1px 0 white;
-}
+// .title {
+//   font-size: 60px;
+//   font: 100% $font-stack;
+//   margin-top: 40px;
+// }
+
 
 
 // possibly fix the position of the gameboard divs?
-.div {
-width: 185px;
-margin-top: 10px;
-margin-bottom: 15px;
-height: 165px;
-display: inline-block;
-font-size: 20px;
-  img{
-    width: 180px;
-    height: 160px;
-    border: 5px solid black;
-  }
-}
-
-.block {
-  // position: relative;
-  // &:before {
-  //   content: '';
-  //   background-image: url('/src/assets/images/arrow.png.jpg');
-  //   width: 129px;
-  //   height: 27px;
-  //   position: absolute;
-  //   top: -29px;
-  // }
-
-  border: 2px solid grey;
-  background-color: red;
-  &.active {
-    img {
-      visibility: visible;
-    }
-  }
-  img {
-    visibility: hidden;
-  }
-}
 
 
-#lives {
-  height: 100px;
-  border: none;
-    img {
-    width: 50px;
-    height: 50px;
-  }
-}
 
-.hearts {
-  margin: 0;
-}
 
-.answerText {
-  margin-bottom: 30px;
-  text-align: center;
-  display: inline-block;
-  font-size: 20px;
-  font: 100% $font-stack;
-  color: white;
-  text-shadow: -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
-}
 
-.answerButtons {
-  margin-bottom: 30px;
-  display: inline-block;
-}
 
+
+
+
+
+
+
+
+
+// leave popup un-nested for now..
 .popup {
   display: none;
   text-align: center;
@@ -215,6 +216,7 @@ font-size: 20px;
     font: 100% $font-stack;
     text-align: center;
   }
+// ^^^leave this un-nested for now
 
   .inner {
     box-shadow: 0 0 50px 10px rgba(0,0,0,0.8);
