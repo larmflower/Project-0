@@ -2,14 +2,11 @@ $(() => {
 
   console.log('Js loaded');
 
-
-
   $('#button').click(function() {
     $('html, body').animate({
       scrollTop: $('#myDiv').offset().top
     }, 2000);
     audio.play();
-
   });
 
 // Each div square has an index which is created / targeted by the click event
@@ -27,9 +24,10 @@ $(() => {
   const $popupWindow = $('.popup');
   const $okButton = $('#ok');
   const audio = new Audio('/src/assets/sounds/seatbelts.mp3');
-
-
-  // const $background = $(this).css('background-image');
+  const audio2 = new Audio('/src/assets/sounds/playland.wav');
+  const audio3 = new Audio('/src/assets/sounds/nutup.wav');
+  const audio4 = new Audio('/src/assets/sounds/titanic.wav');
+  const audio5 = new Audio('/src/assets/sounds/woulda.wav')
 
   let question = null;
   let questionIndex = null;
@@ -38,14 +36,12 @@ $(() => {
   $squares.on('click', revealQuestion);
 
   function revealQuestion() {
-
     $(this).addClass('active');
 
     questionIndex = $(this).attr('data-id');
     question = triviaQuestionsArray[questionIndex];
 
     $answerButtons.empty();
-
     $answerText.html(question.text);
 
     question.options.forEach((option) => {
@@ -60,17 +56,18 @@ $(() => {
 
   function checkAnswer(e) {
     if ($(e.target).text() === 'clowns') {
-      displayAlertWinner();
+      displayAlert('Congratulations! You win!', refreshPage);
+      audio2.play();
       // function here to toggle() image
     } else if ($(e.target).text() === question.answer){
       // alert(question.correct);
       $squares.eq(questionIndex).addClass('active');
-      displayAlertCorrect();
+      displayAlert(question.correct, classInactive);
     } else {
       removeHeart();
+      if (lives === 0) return gameOver();
       $squares.eq(questionIndex).removeClass('active');
-      displayAlertIncorrect();
-
+      displayAlert(question.rebuttal, classInactive);
     }
   }
 
@@ -78,16 +75,16 @@ $(() => {
   function removeHeart(){
     lives--;
     $hearts.eq(lives).hide();
-    if (lives === 0) gameOver();
   }
 
   function gameOver(){
     console.log('game over');
-    const playAgain = confirm('Play again?');
-    if (playAgain){
-      $hearts.show();
-      lives = 3;
-    }
+    displayAlert('You lost all your lives, you\'re zombie food', refreshPage);
+    // const playAgain = confirm('Play again?');
+    // if (playAgain){
+    //   $hearts.show();
+    //   lives = 3;
+    // }
   }
 
   function classInactive(){
@@ -98,24 +95,13 @@ $(() => {
     location.reload();
   }
 
-  function displayAlertCorrect(){
+
+  function displayAlert(message, onClick){
     $popupWindow.addClass('active');
-    $alertBox.text(question.correct);
-    $okButton.on('click', classInactive);
+    $alertBox.text(message);
+    $okButton.on('click', onClick);
   }
 
-
-  function displayAlertIncorrect(){
-    $popupWindow.addClass('active');
-    $alertBox.text(question.rebuttal);
-    $okButton.on('click', classInactive);
-  }
-
-  function displayAlertWinner(){
-    $popupWindow.addClass('active');
-    $alertBox.text('Congratulations! You win!');
-    $okButton.on('click', refreshPage);
-  }
 
 
 
@@ -188,36 +174,7 @@ $(() => {
     answer: 'Twinkies',
     correct: 'So you are doing great keep survivin and thrivin!',
     rebuttal: 'Perhaps that is your one weakness?'
-  },{
-    text: 'Rule #17.. Don\'\t be a what?',
-    options: ['Zombie', 'Hero', 'Crook'],
-    answer: 'Hero',
-    correct: 'I knew you\'\d get that one! On to the next question!',
-    rebuttal: 'Zombies are eating you, guess better!'
-  },{
-    text: 'Which famous actor does Columbus shoot for acting like a zombie?',
-    options: ['Ben Affleck', 'Bill Murray', 'Brad Pitt'],
-    answer: 'Bill Murray',
-    correct: 'Well done! Please continue.',
-    rebuttal: 'If you got this wrong you deserve to be eaten by zombies.'
-  }, {
-    text: 'Witchita and Lil Rock are heading where?',
-    options: ['The Grand Canyon', 'Disney Land', 'Pacific Playland'],
-    answer: 'Pacific Playland',
-    correct: 'You are a trivia master!',
-    rebuttal: 'NOPE! Sorry, you\'\re zombie food..'
-  }, {
-    text: 'Which of these rules are not on Columbus\'\ list?',
-    options: ['Bounty Paper Towels', 'Always wear socks', 'Enjoy the little things'],
-    answer: 'Always wear socks',
-    correct: 'That is correct! Moving right along..',
-    rebuttal: 'Not quite but keep trying!'
-  }, {
-    text: 'What was the film\'\s gross three months after it released (with a budget of 23 million dollars)?',
-    options: ['75 million', '1 billion', '40 million'],
-    answer: '75 million',
-    correct: 'You\'\ve nearly won!',
-    rebuttal: 'I know right? WRONG. You lose a life.'
+
   }];
 
 
@@ -286,3 +243,22 @@ $(() => {
 //   'Rule #17.. Dont be a what?', 'Which famous actor does Columbus shoot for acting like a zombie?',
 //   'Witchita and Lil Rock are heading where?', 'Which of these is not a valid rule on Columbuss list?',
 //   'What was the films total gross after three months with its budget of a measley 23 million dollars..?' ];
+//
+
+// function displayAlertCorrect(){
+//   $popupWindow.addClass('active');
+//   $alertBox.text(question.correct);
+//   $okButton.on('click', classInactive);
+// }
+//
+// function displayAlertWinner(){
+//   $popupWindow.addClass('active');
+//   $alertBox.text('Congratulations! You win!');
+//   $okButton.on('click', refreshPage);
+// }
+//
+// function displayAlertGameOver(){
+//   $popupWindow.addClass('active');
+//   $alertBox.text('You lost all your lives, you\'re zombie food');
+//   $okButton.on('click', refreshPage);
+// }

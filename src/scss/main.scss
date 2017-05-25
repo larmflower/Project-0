@@ -56,6 +56,8 @@ table {
 //   overflow: hidden;
 // }
 
+$font-stack: 100% $font-stack;
+
 .pageOne {
   width: 100%;
   margin: 0 auto;
@@ -75,7 +77,7 @@ height: 900px;
   text-align: center;
   margin-top: 20px;
   font-size: 30px;
-  font-family: 'Allan', cursive;
+  font: 100% $font-stack;
 }
 
 #gameboard {
@@ -83,6 +85,7 @@ height: 900px;
   background-position: left;
   background-repeat: no-repeat;
   background-size: 100%;
+  height: 100%;
 }
 
 #innerGameboard {
@@ -98,12 +101,12 @@ height: 900px;
 
 .title {
   font-size: 40px;
-  font-family: 'Allan', cursive;
+  font: 100% $font-stack;
   margin-top: 80px;
 }
 
 .subtitle {
-  font-family: 'Allan', cursive;
+  font: 100% $font-stack;
   font-size: 25px;
   color: black;
   text-shadow: -1px -1px 0 white,
@@ -116,7 +119,8 @@ height: 900px;
 // possibly fix the position of the gameboard divs?
 .div {
 width: 185px;
-margin-bottom: 5px;
+margin-top: 10px;
+margin-bottom: 15px;
 height: 165px;
 display: inline-block;
 font-size: 20px;
@@ -160,7 +164,7 @@ font-size: 20px;
   text-align: center;
   display: inline-block;
   font-size: 20px;
-  font-family: 'Allan', cursive;
+  font: 100% $font-stack;
   color: white;
   text-shadow: -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -176,7 +180,7 @@ font-size: 20px;
 .popup {
   display: none;
   text-align: center;
-  font-family: 'Allan', cursive;
+  font: 100% $font-stack;
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,0.8);
@@ -186,14 +190,14 @@ font-size: 20px;
     top: 0;
     left: 0;
     display: block;
-    font-family: 'Allan', cursive;
+    font: 100% $font-stack;
     text-align: center;
   }
 
   .inner {
     box-shadow: 0 0 50px 10px rgba(0,0,0,0.8);
     border-radius: 5px;
-    font-family: 'Allan', cursive;
+    font: 100% $font-stack;
     width: 400px;
     background-color: #ccc;
     position: absolute;
