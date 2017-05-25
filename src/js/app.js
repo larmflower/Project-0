@@ -27,8 +27,7 @@ $(() => {
   const audio = new Audio('/src/assets/sounds/seatbelts.mp3');
   const audio2 = new Audio('/src/assets/sounds/playland.wav');
   const audio3 = new Audio('/src/assets/sounds/goodbye.mp3.mov');
-  const audio4 = new Audio('/src/assets/sounds/titanic.wav');
-  const audio5 = new Audio('/src/assets/sounds/woulda.wav')
+  const audio4 = new Audio('/src/assets/sounds/woulda.wav');
 
   let question = null;
   let questionIndex = null;
@@ -67,7 +66,7 @@ $(() => {
       audio3.play();
     } else {
       removeHeart();
-      audio5.play();
+      audio4.play();
       if (lives === 0) return gameOver();
       $squares.eq(questionIndex).removeClass('active');
       displayAlert(question.rebuttal, classInactive);

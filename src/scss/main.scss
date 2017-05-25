@@ -130,7 +130,9 @@ margin-left: 40px;
 
   .block {
     border: 2px solid grey;
-    background-color: red;
+    background-image: url('/src/assets/images/card-face.jpg');
+    background-size: contain;
+    // background-color: red;
     &.active {
       img {
         visibility: visible;
@@ -141,6 +143,17 @@ margin-left: 40px;
     }
   }
 
+  #start{
+    background-image: url('/src/assets/images/start.jpg');
+    background-size: contain;
+  }
+
+  #winner {
+    background-image: url('/src/assets/images/last.jpg');
+    background-size: contain;
+  }
+
+
   #lives {
     height: 100px;
     border: none;
@@ -150,7 +163,7 @@ margin-left: 40px;
     }
 
     .hearts {
-      margin: 0;
+      margin: 0 0 0 5px;
     }
   }
 
@@ -173,7 +186,6 @@ margin-left: 40px;
   }
 
 }
-
 
 
 // .title {
