@@ -2,6 +2,7 @@ $(() => {
 
   console.log('Js loaded');
 
+
   $('#button').click(function() {
     $('html, body').animate({
       scrollTop: $('#myDiv').offset().top
@@ -95,14 +96,11 @@ $(() => {
     location.reload();
   }
 
-
   function displayAlert(message, onClick){
     $popupWindow.addClass('active');
     $alertBox.text(message);
     $okButton.on('click', onClick);
   }
-
-
 
 
 // Create array of questions which will align with the matching indexes of divs
@@ -176,9 +174,6 @@ $(() => {
     rebuttal: 'Perhaps that is your one weakness?'
 
   }];
-
-
-
 
 
 

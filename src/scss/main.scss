@@ -56,7 +56,7 @@ table {
 //   overflow: hidden;
 // }
 
-$font-stack: 100% $font-stack;
+$font-stack: 'Allan';
 
 .pageOne {
   width: 100%;
@@ -64,13 +64,28 @@ $font-stack: 100% $font-stack;
   height: 100%;
   background-color: red;
   img {
+    position: relative;
     width: 100%;
   }
 }
 
+
+
 .pageTwo {
 margin-bottom: 50px;
 height: 900px;
+
+}
+
+#clickToEnter {
+  font: 100% $font-stack;
+  text-align: center;
+  font-size: 40px;
+}
+
+#myDiv {
+// display: inline-block;
+margin-left: 40px;
 }
 
 #ok {
@@ -81,10 +96,10 @@ height: 900px;
 }
 
 #gameboard {
-  background-image: url('/src/assets/images/theme1.jpg');
+  background-image: url('/src/assets/images/themepark.jpg');
   background-position: left;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 109%;
   height: 100%;
 }
 
@@ -93,16 +108,16 @@ height: 900px;
   margin: 0 auto;
 }
 
-#myDiv {
-  display: inline-block;
-  margin-left: 40px;
+#title {
+  font: 100% $font-stack;
+  font-size: 40px;
+  margin-top: 40px;
 }
 
-
 .title {
-  font-size: 40px;
+  font-size: 60px;
   font: 100% $font-stack;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .subtitle {
@@ -132,6 +147,16 @@ font-size: 20px;
 }
 
 .block {
+  // position: relative;
+  // &:before {
+  //   content: '';
+  //   background-image: url('/src/assets/images/arrow.png.jpg');
+  //   width: 129px;
+  //   height: 27px;
+  //   position: absolute;
+  //   top: -29px;
+  // }
+
   border: 2px solid grey;
   background-color: red;
   &.active {
@@ -147,7 +172,6 @@ font-size: 20px;
 
 #lives {
   height: 100px;
-
   border: none;
     img {
     width: 50px;
