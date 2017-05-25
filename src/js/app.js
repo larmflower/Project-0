@@ -26,7 +26,7 @@ $(() => {
   const $okButton = $('#ok');
   const audio = new Audio('/src/assets/sounds/seatbelts.mp3');
   const audio2 = new Audio('/src/assets/sounds/playland.wav');
-  const audio3 = new Audio('/src/assets/sounds/nutup.wav');
+  const audio3 = new Audio('/src/assets/sounds/goodbye.mp3.mov');
   const audio4 = new Audio('/src/assets/sounds/titanic.wav');
   const audio5 = new Audio('/src/assets/sounds/woulda.wav')
 
@@ -57,15 +57,17 @@ $(() => {
 
   function checkAnswer(e) {
     if ($(e.target).text() === 'clowns') {
-      displayAlert('Congratulations! You win!', refreshPage);
+      displayAlert('Congratulations! You reached the end with enough lives left! Press OK to refresh the page and play again...if you dare.', refreshPage);
       audio2.play();
       // function here to toggle() image
     } else if ($(e.target).text() === question.answer){
       // alert(question.correct);
       $squares.eq(questionIndex).addClass('active');
       displayAlert(question.correct, classInactive);
+      audio3.play();
     } else {
       removeHeart();
+      audio5.play();
       if (lives === 0) return gameOver();
       $squares.eq(questionIndex).removeClass('active');
       displayAlert(question.rebuttal, classInactive);
@@ -117,12 +119,12 @@ $(() => {
     options: ['Sushi', 'Spaghetti', 'Burgers'],
     answer: 'Burgers',
     correct: 'Pretty gross huh? Move ahead one space!',
-    rebuttal: 'Seriously?'
+    rebuttal: 'Seriously? And you better not be cheating!!'
   }, {
     text: 'What is Talahasse\'s one weakness?',
     options: ['Twinkies', 'Puppies', 'Cupcakes'],
     answer: 'Twinkies',
-    correct: 'You live to die another day..',
+    correct: 'This twinkie thing ain\'t over yet..Next question!',
     rebuttal: 'Perhaps that is your one weakness?'
   },{
     text: 'Rule #17.. Don\'\t be a what?',
