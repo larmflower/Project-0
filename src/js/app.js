@@ -112,19 +112,19 @@ $(() => {
     options: ['spiders', 'clowns', 'mice'],
     answer: 'clowns',
     correct: 'That is correct! Moving right along..',
-    rebuttal: 'Sorry!, try again..'
+    rebuttal: 'Sorry! Guess you\'ll have to start over.'
   }, {
     text: 'The Zombie Breakout was caused by which rotten food?',
     options: ['Sushi', 'Spaghetti', 'Burgers'],
     answer: 'Burgers',
-    correct: 'Pretty gross huh? Move ahead one space!',
-    rebuttal: 'Seriously? And you better not be cheating!!'
+    correct: 'Alert GBK! and move ahead one space..',
+    rebuttal: 'Seriously? Here\'s a hint, mad cow!'
   }, {
     text: 'What is Talahasse\'s one weakness?',
     options: ['Twinkies', 'Puppies', 'Cupcakes'],
     answer: 'Twinkies',
     correct: 'This twinkie thing ain\'t over yet..Next question!',
-    rebuttal: 'Perhaps that is your one weakness?'
+    rebuttal: 'Perhaps that is your one weakness? You\'re nearly half-way!'
   },{
     text: 'Rule #17.. Don\'\t be a what?',
     options: ['Zombie', 'Hero', 'Crook'],
@@ -147,8 +147,8 @@ $(() => {
     text: 'Which of these rules are not on Columbus\'\ list?',
     options: ['Bounty Paper Towels', 'Always wear socks', 'Enjoy the little things'],
     answer: 'Always wear socks',
-    correct: 'You are a trivia master!',
-    rebuttal: 'Not quite but keep trying!'
+    correct: 'Great start! Move to the next space..',
+    rebuttal: 'You\'ll have to do better than that!'
   }, {
     text: 'What was the film\'\s gross three months after it released (with a budget of 23 million dollars)?',
     options: ['75 million', '1 billion', '40 million'],
