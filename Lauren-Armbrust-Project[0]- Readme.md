@@ -20,12 +20,17 @@ Here are the steps to begin building and running the code.
 
 #### A Brief History of Zombieland Trivia
 
-Short Description of Project
+Zombieland Trivia takes inspiration from arcade games as well as board games which I've grown up playing. The main page welcomes the user and asks them to click in order to enter the game. 
 
-Use screenshots
+Players instructions at the top of the page give direction for how the game works. Gameboard pieces or <divs> are clicked and turned over which activate the trivia questions. Buttons are generated for each <div> relevant to the corresponding questions and answers which are contained in a universal array. 
+
+My first step was to create a click event for the main page with a scroll effect:
 
 ![Scroll Effect](desktop/scroll.jpg)
 
+In the end, I was happy with how it turned out. In the future I would incorporate other levels that players could access via clicking on these divs which at the moment are connected to the individual questions. 
+
+Greatest challenges can be read below...
 
 #### What technologies were used?
 
